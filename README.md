@@ -94,17 +94,29 @@ Revisa el `package.json` para más detalles.
 
 ## 📂 Estructura del proyecto
 
-```
-/src
-  /actions       # funciones de fetch a API
-  /components    # componentes reutilizables
-  /screens       # pantallas de navegación
-  /store         # Zustand slices y stores
-  /navigation    # configuración de React Navigation
-  /domain        # entidades y tipos de TypeScript
-  /infrastructure # mappers e interfaces de respuesta
-/assets          # imágenes estáticas (logo, avatar genérico)
-/index.js        # punto de entrada de React Native
+```text
+src
+  ├─ actions/users       # funciones de fetch a API
+  │    ├ get-users.ts
+  │    └ get-user-by-id.ts
+  ├─ assets              # imágenes estáticas (logo, avatar genérico)
+  ├─ config/api          # configuración de instancia Axios
+  │    └ testApi.ts
+  ├─ domain/entities     # entidades y tipos de TypeScript
+  │    └ user.ts
+  ├─ infrastructure      # mappers e interfaces de respuesta
+  │    ├ interfaces
+  │    └ mappers
+  │         └ user.mapper.ts
+  ├─ presentation        # capa de presentación
+  │    ├ components      # componentes reutilizables
+  │    ├ hooks           # hooks personalizados
+  │    ├ layouts         # layouts globales
+  │    ├ navigation      # React Navigation setup
+  │    ├ screens         # pantallas principales
+  │    └ store           # Zustand slices y stores UI
+  ├─ types               # tipos globales adicionales
+  └─ UsersApp.tsx        # punto de entrada de la app
 ```
 
 ---
@@ -114,8 +126,8 @@ Revisa el `package.json` para más detalles.
 - **State management**: usamos React-Query para _server state_ (peticiones, cache, refetch) y Zustand para el estado de UI (flags, filtros, seleccionado).
 - **Avatares**: generados dinámicamente desde `https://i.pravatar.cc/` con la ID de usuario.
 - **FadeInImage**: componente personalizado que añade animación de opacidad al cargar imágenes.
-- **Estilos**: UI Kitten + Tailwind (si lo integras más adelante).
+- **Estilos**: UI Kitten (EVA Design) elegido sobre `styled-components` o Tailwind CSS por flexibilidad y velocidad de desarrollo.
+- **Dark Mode**: la app detecta automáticamente el tema del dispositivo y aplica el modo oscuro usando el sistema de theming de UI Kitten.
+- **Filtrado en tiempo real**: búsqueda instantánea de usuarios por nombre o correo electrónico.
 
 ---
-
-¡Listo! Ahora sólo hace falta configurar tu `.env` (si aplica) y ejecutar los comandos anteriores para probar la app.
