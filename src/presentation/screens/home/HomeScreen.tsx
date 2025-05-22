@@ -4,7 +4,7 @@ import MainLayout from '../../layouts/MainLayout';
 import FullScreenLoader from '../../components/ui/FullScreenLoader';
 import UserList from '../../components/users/UserList';
 import {useUIStore} from '../../store/uiStore';
-import {Input} from '@ui-kitten/components';
+import {Input, Layout} from '@ui-kitten/components';
 
 export default function HomeScreen() {
   const {isLoading, data: users = []} = useQuery({
@@ -24,13 +24,16 @@ export default function HomeScreen() {
 
   return (
     <MainLayout title="Home" subtitle="Check your users">
-      <Input
-        placeholder="Buscar por nombre o email"
-        value={searchTerm}
-        onChangeText={setSearchTerm}
-        style={{margin: 16}}
-      />
-      {isLoading ? <FullScreenLoader /> : <UserList users={filteredUsers} />}
+      <Layout style={{flex: 1}}>
+        <Input
+          placeholder="Buscar por nombre o email"
+          value={searchTerm}
+          onChangeText={setSearchTerm}
+          style={{margin: 16}}
+        />
+
+        {isLoading ? <FullScreenLoader /> : <UserList users={filteredUsers} />}
+      </Layout>
     </MainLayout>
   );
 }

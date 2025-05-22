@@ -49,7 +49,7 @@ export default function MainLayout({
   };
 
   return (
-    <Layout style={{paddingTop: top}}>
+    <Layout style={{flex: 1, paddingTop: top}}>
       <TopNavigation
         title={title}
         subtitle={subtitle}
@@ -58,7 +58,7 @@ export default function MainLayout({
         accessoryRight={() => <RenderRightAction />}
       />
       <Divider />
-      <Layout style={{height: '100%'}}>{children}</Layout>
+      <Layout style={{flex: 1}}>{children}</Layout>
     </Layout>
   );
 }

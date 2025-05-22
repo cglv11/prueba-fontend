@@ -29,7 +29,6 @@ export default function UserScreen({route}: Props) {
       <ScrollView
         contentContainerStyle={{paddingVertical: 12, paddingHorizontal: 16}}>
         <Layout>
-          {/* Avatar y datos principales */}
           <Card style={{marginBottom: 12, alignItems: 'center', padding: 12}}>
             <FadeInImage
               uri={avatarUri}
@@ -48,7 +47,6 @@ export default function UserScreen({route}: Props) {
             </Text>
           </Card>
 
-          {/* Compañía */}
           <Card style={{marginBottom: 12, padding: 20}}>
             <Text category="h6" style={{marginBottom: 6}}>
               Compañía
@@ -59,7 +57,6 @@ export default function UserScreen({route}: Props) {
             </Text>
           </Card>
 
-          {/* Dirección */}
           <Card style={{marginBottom: 12, padding: 20}}>
             <Text category="h6" style={{marginBottom: 6}}>
               Dirección
@@ -72,7 +69,6 @@ export default function UserScreen({route}: Props) {
             </Text>
           </Card>
 
-          {/* Contacto */}
           <Card style={{padding: 20}}>
             <Text category="h6" style={{marginBottom: 6}}>
               Contacto
